@@ -7,6 +7,10 @@ MESSAGE TO GRADER:
 It would make more sense to run evaluate_metrics.ipynb because it is my whole code minus the model training, which took about 2.5 hours on my machine. 
 
 I've supplied both notebooks however and you can read about each one down below. 
+
+Due to the large size of the Files, I've uploaded the dataset and the best_roberta_multilabel.pt model to a google drive folder. 
+Download it from https://drive.google.com/drive/u/0/folders/1G5UkFdD6eAYwcWwtK2ebKjjFY6STjuoB?q=sharedwith:public%20parent:1G5UkFdD6eAYwcWwtK2ebKjjFY6STjuoB
+
 ## Notebooks
 
 ### 1. `training.ipynb`
