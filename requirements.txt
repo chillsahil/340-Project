@@ -1,0 +1,7 @@
+pandas
+numpy
+emoji
+nltk
+transformers
+torch
+scikit-learn
