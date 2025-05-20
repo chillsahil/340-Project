@@ -66,18 +66,6 @@ Install the required Python packages:
 pip install -r requirements.txt
 ```
 
-A sample `requirements.txt` might include:
-
-```
-pandas
-numpy
-emoji
-nltk
-transformers
-torch
-scikit-learn
-```
-
 ## Directory Structure
 
 ```
