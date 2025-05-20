@@ -2,8 +2,6 @@
 
 This repository contains two Jupyter notebooks for training and evaluating a multi-label RoBERTa-based classifier on Reddit mental health data.
 
-MESSAGE TO GRADER:
-
 It would make more sense to run evaluate_metrics.ipynb because it is my whole code minus the model training, which took about 2.5 hours on my machine. 
 
 I've supplied both notebooks however and you can read about each one down below. 
