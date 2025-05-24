@@ -1,7 +1,8 @@
 pandas
 numpy
+scikit-learn
+torch
+transformers
 emoji
 nltk
-transformers
-torch
-scikit-learn
+swifter

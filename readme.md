@@ -1,82 +1,113 @@
-# README
+# Mental Health Multi-Label Classification
 
-This repository contains two Jupyter notebooks for training and evaluating a multi-label RoBERTa-based classifier on Reddit mental health data.
+This project trains and deploys a multi-label RoBERTa-based classifier that detects mental health conditions in Reddit posts. Each post may be associated with multiple conditions such as depression, anxiety, PTSD, ADHD, and more.
 
-It would make more sense to run evaluate_metrics.ipynb because it is my whole code minus the model training, which took about 2.5 hours on my machine. 
+---
 
-I've supplied both notebooks however and you can read about each one down below. 
+## 🔍 Background
 
-Due to the large size of the Files, I've uploaded the dataset and the best_roberta_multilabel.pt model to a google drive folder. 
-Download it from https://drive.google.com/drive/u/0/folders/1G5UkFdD6eAYwcWwtK2ebKjjFY6STjuoB?q=sharedwith:public%20parent:1G5UkFdD6eAYwcWwtK2ebKjjFY6STjuoB
+Mental health forums like Reddit contain rich, unstructured user-generated content where individuals often discuss symptoms or emotional states. This classifier aims to identify relevant mental health tags for each post, which can aid moderation, mental health research, or automated screening tools.
 
-## Notebooks
+We fine-tune `roberta-base` from Hugging Face using a dataset of labeled Reddit posts. The model is trained to output multiple labels per post using binary cross-entropy loss.
 
-### 1. `training.ipynb`
+---
 
-**Purpose:**
-- Load and preprocess the dataset (`cleaned_paper.csv`)
-- Train a RoBERTa-based multi-label classifier on Reddit posts
-- Save the best checkpoint (`best_roberta_multilabel.pt`)
-- Perform a final evaluation on the full dataset (subset-accuracy, per-label metrics)
+## 📁 Project Structure
 
-**Usage:**
-1. Ensure you have Python 3.8+ installed along with the required dependencies listed below.
-2. Place `cleaned_paper.csv` in the notebook directory.
-3. Open `training.ipynb` in JupyterLab or Jupyter Notebook.
-4. Run all cells sequentially:
-   - Installs and imports
-   - Data loading and aggressive text cleaning
-   - Multilabel encoding and tokenization
-   - Dataset and DataLoader setup
-   - Model architecture, training loop, and checkpoint saving
-   - Final evaluation and metrics printing
-5. After completion, you should see:
-   - A saved checkpoint file: `best_roberta_multilabel.pt`
-   - Printed metrics (subset-accuracy, classification report, per-label accuracy)
+```
+MentalHealthClassifier/
+├── README.md
+├── requirements.txt
+├── data/
+│   └── cleaned_paper.csv
+├── models/
+│   └── best_roberta_multilabel.pt
+├── notebooks/
+│   ├── train_model.ipynb
+│   ├── evaluate_model.ipynb
+│   └── demo_model.ipynb
+└── src/
+    ├── __init__.py
+    ├── data_preprocessing.py
+    ├── model.py
+    └── utils.py
+```
 
+---
 
-### 2. `evaluate_metrics.ipynb`
+## 🚀 Quick Start
 
-**Purpose:**
-- Load a pre-trained model checkpoint (`best_roberta_multilabel.pt`)
-- Preprocess the dataset (`cleaned_paper.csv`) with the same pipeline
-- Evaluate the model on the full dataset or specified split
-- Print overall subset-accuracy, per-label metrics, and classification report
+### 1. Clone and Install
 
-**Usage:**
-1. Ensure you have Python 3.8+ and the same dependencies installed.
-2. Place both `cleaned_paper.csv` and `best_roberta_multilabel.pt` in the notebook directory.
-3. Open `evaluate_metrics.ipynb`.
-4. Run all cells sequentially:
-   - Imports and environment setup
-   - Data loading and text cleaning
-   - Multilabel encoding and tokenization
-   - Model instantiation and checkpoint loading
-   - Inference loop collecting predictions
-   - Printing subset-accuracy and per-label metrics
-5. Review printed metrics to understand model performance.
+```bash
+git clone https://github.com/chillsahil/Mental-Health-RoBERTa-Model.git
+cd Mental-Health-RoBERTa-Model
+pip install -r requirements.txt
+```
 
-## Requirements
+### 2. Download Resources
 
-Install the required Python packages:
+- Place `cleaned_paper.csv` and `best_roberta_multilabel.pt` in the appropriate directories from:
+  [Google Drive Link](https://drive.google.com/drive/folders/1G5UkFdD6eAYwcWwtK2ebKjjFY6STjuoB)
+
+---
+
+## 🧪 Notebooks
+
+### `demo_model.ipynb` ⭐
+
+- Run instant predictions on example or user-inputted text
+- No need to retrain the model — ideal for demos!
+
+### `train_model.ipynb`
+
+- Trains RoBERTa on the Reddit mental health dataset
+- Saves best checkpoint
+
+### `evaluate_model.ipynb`
+
+- Evaluates the model on the entire dataset
+- Reports overall and per-label accuracy
+
+---
+
+## 📦 Requirements
+
+```text
+pandas
+numpy
+scikit-learn
+torch
+transformers
+emoji
+nltk
+swifter
+```
+
+Install with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Directory Structure
+---
 
-```
-├── cleaned_paper.csv            # Preprocessed dataset CSV
-├── training.ipynb               # Notebook to train the model
-├── evaluate_metrics.ipynb       # Notebook to evaluate the trained model
-├── best_roberta_multilabel.pt   # Saved checkpoint (after training)
-└── requirements.txt             # Python dependencies
-```
+## 🧠 Supported Labels
 
-## Notes
+- depression
+- anxiety
+- OCD
+- PTSD
+- autism
+- eatingdisorders
+- adhd
+- bipolar
+- schizophrenia
 
-- Ensure that `cleaned_paper.csv` and the checkpoint file are in the same directory as the notebooks.
-- Use a GPU-enabled environment (CUDA) for faster training.
-- Adjust hyperparameters in `training.ipynb` as needed (epochs, batch size, learning rate).
+---
 
+## 📬 Contact
+
+**Author**: Sahil Prusti  
+**Email**: prustisahil@gmail.com  
+**LinkedIn**: [saprusti](https://www.linkedin.com/in/saprusti/)

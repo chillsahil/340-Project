@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.ipynb_checkpoints/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Data
+/data/*.csv
+!/data/README.md
+
+# Models
+/models/*.pt
+
+# Logs
+*.log
+
+# Exported notebooks
+*.nbconvert.ipynb
